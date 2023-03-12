@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Wynik</title>
+</head>
+<body>
+<h1>Wynik</h1>
+<p>Cena towaru: <span th:text="${cena}"></span> zł</p>
+<p>Liczba rat: <span th:text="${raty}"></span></p>
+<p>Miesięczna rata: <span th:text="${#numbers.formatDecimal(rata, 1, 2, 'COMMA')}" th:if="${rata!= null && rata!= 0}"></span> zł</p>
+<!--${#numbers.formatDecimal(num,3,2,'COMMA')}-->
+<p th:if="${rata== null || rata== 0}" style="color: red">Nie udało się obliczyć raty!</p>
+<a href="/">Powrót</a>
+</body>
+</html>

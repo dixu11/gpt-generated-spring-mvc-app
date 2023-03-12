@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator rat</title>
+</head>
+<body>
+<h1>Kalkulator rat</h1>
+<form method="post" th:action="@{/oblicz}">
+    <div>
+        <label for="cena">Cena towaru:</label>
+        <input type="number" id="cena" name="cena" th:value="${cena}" required min="100" max="10000"/>
+    </div>
+    <div>
+        <label for="raty">Liczba rat:</label>
+        <input type="number" id="raty" name="raty" th:value="${raty}" required min="6" max="48"/>
+    </div>
+    <button type="submit">Oblicz</button>
+</form>
+<p th:if="${error}" style="color: red" th:text="${error}"></p>
+</body>
+</html>
